@@ -74,13 +74,20 @@ export default Service.extend({
         }
       });
     } else {
-      // Add a single worksheet to workbook
-      wb.SheetNames.push(options.sheetName);
-      wb.Sheets[options.sheetName] = sheet_from_array_of_arrays(data);
-      if (options.merges && options.merges.length) {
-        wb.Sheets[options.sheetName]['!merges'] = options.merges;
+      let sheetName = options.sheetName || 'Sheet 1';
+      if (options.isHTMLTable) {
+        wb = XLSX.utils.table_to_book(data, {sheet:sheetName, display: options.display});
+      } else {
+        // Add a single worksheet to workbook
+        wb.SheetNames.push(sheetName);
+        wb.Sheets[sheetName] = sheet_from_array_of_arrays(data);
+        if (options.merges && options.merges.length) {
+          wb.Sheets[sheetName]['!merges'] = options.merges;
+        }
       }
     }
+
+    
 
     let wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
 
