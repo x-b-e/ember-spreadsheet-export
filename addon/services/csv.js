@@ -17,8 +17,11 @@ export default Service.extend({
     options = optionize(options, defaultConfig);
 
     let csv = this.jsonToCsv(data, options);
-
-    saveAs(new Blob([csv],{type:"data:text/csv;charset=utf-8"}), options.fileName);
+    let blobToSave = new Blob([csv],{type:"data:text/csv;charset=utf-8"});
+    saveAs(blobToSave, options.fileName);
+    if (options.returnBlob) {
+      return blobToSave;
+    }
   },
 
   jsonToCsv(objArray, options) {

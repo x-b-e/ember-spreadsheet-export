@@ -84,7 +84,13 @@ export default Service.extend({
 
     let wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
 
-    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), options.fileName);
+    let blobToSave = new Blob([s2ab(wbout)],{type:"application/octet-stream"});
+
+    saveAs(blobToSave, options.fileName);
+
+    if (options.returnBlob) {
+      return blobToSave;
+    }
 
   }
 
