@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import { saveAs } from 'file-saver';
-import XLSX from 'xlsx';
+import XLSX from 'xlsx-style';
 import optionize from "../utils/utils";
 
 const defaultConfig = {
