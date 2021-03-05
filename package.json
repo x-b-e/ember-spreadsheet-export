@@ -39,8 +39,7 @@
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.1",
     "loader.js": "^4.0.10",
-    "qunit-dom": "^0.8.2",
-    "xlsx-style": "https://github.com/protobi/js-xlsx/tree/beta"
+    "qunit-dom": "^0.8.2"
   },
   "keywords": [
     "ember-addon",
@@ -61,7 +60,8 @@
     "ember-auto-import": "^1.5.3",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
-    "file-saver": "^2.0.2"
+    "file-saver": "^2.0.2",
+    "xlsx-style": "0.8.13"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
